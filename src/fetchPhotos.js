@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://pixabay.com/api/";
+const BASE_URL = "https://pixabay.com/api";
 const API_KEY = "35021864-8bcde3535af483a0723c672d5";
 
 const searchParams = new URLSearchParams({
@@ -11,11 +11,8 @@ const searchParams = new URLSearchParams({
 })
 
 export const fetchPhotos = async (str) => {
-    const response = await axios.get(`${BASE_URL}?${searchParams}&q=${str}`);
-    console.log('response: ', response);
-
-    const data = await response.json();
+    const {data} = await axios.get(`${BASE_URL}/?${searchParams}&q=${str}`);
     console.log('data: ', data);
 
-    console.log('the END of fetchPhotos function!');
+    return data;
 }

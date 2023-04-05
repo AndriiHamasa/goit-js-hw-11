@@ -9,8 +9,9 @@ btnEl.addEventListener('click', async (event) => {
 
     console.log('the START of all functions');
 
-    await fetchPhotos(inputEl.value);
+    const data = await fetchPhotos(inputEl.value);
 
     console.log('the END of all functions');
 })
+
 
