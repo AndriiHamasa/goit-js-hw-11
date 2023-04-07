@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
     <title>Page title</title>
-    
+    <link rel="stylesheet" href="./normalize.css">
     <link rel="stylesheet" href="./common.css">
   </head>
   <body>
@@ -18,10 +17,20 @@
           autocomplete="off"
           placeholder="Search images..."
         />
-        <button type="submit">Search</button>
+        <button type="submit" class="btn">Search</button>
       </form>
     </div>
 
+    <div class="gallery">
+      <!-- Картки зображень -->
+      
+    </div>
+    <button type="button" class="load-more btn">Load more</button>
+
     <script type="module" src="./index.js"></script>
+
+
+    
+
   </body>
 </html>
