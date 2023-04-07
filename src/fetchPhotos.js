@@ -22,3 +22,11 @@ export const fetchPhotos = async str => {
   return data;
 };
 
+`https://pixabay.com/api/?${new URLSearchParams({
+  key: '35021864-8bcde3535af483a0723c672d5',
+  image_type: 'photo',
+  orientation: 'horizontal',
+  safesearch: true,
+  per_page: 40,
+  page: 1,
+})}&q=${str}`;

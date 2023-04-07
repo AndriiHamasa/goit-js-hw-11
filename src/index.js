@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import { fetchPhotos, searchParams } from './fetchPhotos';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import InfiniteScroll from 'infinite-scroll';
 
 const formEl = document.querySelector('.search-form');
 const inputEl = formEl.firstElementChild;
@@ -57,7 +58,7 @@ const toScroll = () => {
     top: cardHeight * 2,
     behavior: 'smooth',
   });
-}
+};
 
 formEl.addEventListener('submit', async event => {
   event.preventDefault();
@@ -77,6 +78,12 @@ formEl.addEventListener('submit', async event => {
   const data = await fetchPhotos(inputEl.value);
 
   if (data.hits.length === 0) {
+    try {
+      galleryEl.innerHTML = '';
+      loadMoreBtnEl.classList.remove('js-load-more');
+    } catch (error) {
+      console.log(error);
+    }
     return Notiflix.Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
@@ -115,5 +122,3 @@ loadMoreBtnEl.addEventListener('click', async () => {
 
   searchParams.page += 1;
 });
-
-
